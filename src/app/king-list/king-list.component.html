@@ -2,27 +2,21 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Imagen</th>
+             <th>Imagen</th>
             <th>Nombre</th>
             <th>Talle</th>
             <th>Precio</th>
-            <th>Stock</th>
+             <th>Stock</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th><img [src]="conjunto1.image" [alt]="conjunto1.nombre"></th>
-            <th>{{conjunto1.nombre}}</th>
-            <th>{{conjunto1.talle}}</th>
-            <th>{{conjunto1.precio}}</th>
-            <th>{{conjunto1.stock}}</th>
+        <tr *ngFor="let conjunto of conjuntos" [ngClass]="{'liquidacion':conjunto.liquidacion}">
+            <td><img [src]="conjunto.imagen" [alt]="conjunto.nombre"></td>
+            <td>{{conjunto.nombre}}</td>
+            <td>{{conjunto.talle}}</td>
+            <td>{{conjunto.precio | currency}}</td>
+            <td><span class="badge badge-warning" *ngIf="conjunto.stock==0">Sin stock</span><span class="badge badge-success" *ngIf="conjunto.stock!=0">En stock</span></td>
         </tr>
-        <tr>
-            <th><img [src]="conjunto2.image" [alt]="conjunto2.nombre"></th>
-            <th>{{conjunto2.nombre}}</th>
-            <th>{{conjunto2.talle}}</th>
-            <th>{{conjunto2.precio}}</th>
-            <th>{{conjunto2.stock}}</th>
-        </tr>
+       
     </tbody>
 </table>
