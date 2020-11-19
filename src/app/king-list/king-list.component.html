@@ -1,23 +1,40 @@
 <h1>CONJUNTOS</h1>
 <table class="table">
-    <thead>
+    <thead  class="thear-dark">
         <tr>
-             <th>Imagen</th>
+            <th>Imagen</th>
             <th>Nombre</th>
             <th>Talle</th>
             <th>Precio</th>
-             <th>Stock</th>
-             
+            <th>Stock</th>
+            <th>Añadir</th>
+
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let conjunto of conjuntos" [ngClass]="{'liquidacion':conjunto.liquidacion}">
-            <td><img [src]="conjunto.imagen" [alt]="conjunto.nombre"></td>
+            <td><img 
+                 width="150"
+                 class="img-thumbnail"
+                 [src]="conjunto.imagen"
+                 [alt]="conjunto.nombre">
+            </td>
             <td>{{conjunto.nombre}}</td>
             <td>{{conjunto.talle}}</td>
             <td>{{conjunto.precio | currency}}</td>
-            <td><span class="badge badge-warning" *ngIf="conjunto.stock==0">Sin stock</span><span class="badge badge-success" *ngIf="conjunto.stock!=0">En stock</span></td>
+            <td>
+                <span class="badge badge-warning" *ngIf="conjunto.stock==0">Sin stock</span>
+                <span class="badge badge-success" *ngIf="conjunto.stock!=0">En stock</span>
+            </td> 
+            <td>
+                <button class="btn btn-secondary" (click)="downContador(conjunto)">-</button>
+                <input 
+                type="text" class="form-control"
+                 [(ngModel)]="conjunto.contador"
+                 (keyup)="onChangeContador($event, conjunto)"
+                 > 
+                <button class="btn btn-secondary" (click)="upContador(conjunto)">+</button>
+            </td>
         </tr>
-       
     </tbody>
 </table>

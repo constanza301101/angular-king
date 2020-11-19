@@ -14,7 +14,8 @@ export class KingListComponent implements OnInit {
       talle : "L/XL",
       precio :400,
       stock :4,
-      liquidacion :true
+      liquidacion :true,
+      contador:0,
     },
     {
      imagen :"assets/img/06.jpg",
@@ -23,6 +24,7 @@ export class KingListComponent implements OnInit {
      precio : 70,
      stock : 0,
      liquidacion: false,
+     contador:0,
    },
    {
      imagen :"assets/img/03.jpg",
@@ -31,11 +33,26 @@ export class KingListComponent implements OnInit {
      precio :500,
      stock :1,
      liquidacion: false,
+     contador:0,
    },
    ];
   constructor() { }
 
   ngOnInit(): void {
   }
+  
+  upContador(conjunto: King){
+    if(conjunto.contador < conjunto.stock){
+    conjunto.contador++;
+    }
+  }
 
+  downContador(conjunto: King){
+    if(conjunto.contador >0){
+    conjunto.contador--;
+  }
+  }
+   onChangeContador(event, conjunto:King){
+   console.log(event.target);
+   }
 }

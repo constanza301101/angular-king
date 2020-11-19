@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KingListComponent } from './king-list/king-list.component';
+
+import { FormsModule } from '@angular/forms';
+
 import { KingCarritoComponent } from './king-carrito/king-carrito.component';
 
 @NgModule({
@@ -14,7 +17,8 @@ import { KingCarritoComponent } from './king-carrito/king-carrito.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,5 +5,6 @@ export interface King {
     precio: number;
     stock: number;
     liquidacion: boolean;
+    contador:number;
   } 
   
