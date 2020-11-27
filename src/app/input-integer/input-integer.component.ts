@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { King } from '../king-list/king';
+
 
 @Component({
   selector: 'app-input-integer',
@@ -11,9 +11,12 @@ export class InputIntegerComponent implements OnInit {
 
   constructor() { }
 
-@Input()  contador: number;
-@Input()  max: number;
-@Output() maxStock: EventEmitter<string> = new EventEmitter<string>();
+@Input() 
+ contador: number;
+@Input() 
+ max: number;
+@Output()
+ maxStock: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnInit(): void {
   }

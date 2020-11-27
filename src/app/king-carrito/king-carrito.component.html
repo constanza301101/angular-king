@@ -1,1 +1,6 @@
-<p>king-carrito works!</p>
+<p>Compras</p>
+<ul>
+    <li *ngFor="let compra of ListaCompras$ | async">}
+    {{compra.nombre}}: {{compra.contador}}
+    </li>
+</ul>
