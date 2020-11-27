@@ -10,7 +10,7 @@ export class KingListComponent implements OnInit {
   conjuntos : King[] =[
     {
       imagen :"assets/img/01.jpg",
-      nombre :"Conjunto JH",
+      nombre :"Conjunto Yellow",
       talle : "L/XL",
       precio :400,
       stock :4,
@@ -19,7 +19,7 @@ export class KingListComponent implements OnInit {
     },
     {
      imagen :"assets/img/06.jpg",
-     nombre :"Conjunto RTH",
+     nombre :"Conjunto Light Blue",
      talle : "M",
      precio : 70,
      stock : 0,
@@ -28,7 +28,7 @@ export class KingListComponent implements OnInit {
    },
    {
      imagen :"assets/img/03.jpg",
-     nombre : "Conjunto PPP",
+     nombre : "Conjunto Blue",
      talle : "S/M",
      precio :500,
      stock :1,
@@ -40,19 +40,7 @@ export class KingListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
-  upContador(conjunto: King){
-    if(conjunto.contador < conjunto.stock){
-    conjunto.contador++;
-    }
+  maxStock(m:string){
+    alert(m);
   }
-
-  downContador(conjunto: King){
-    if(conjunto.contador >0){
-    conjunto.contador--;
-  }
-  }
-   onChangeContador(event, conjunto:King){
-   console.log(event.target);
-   }
 }

@@ -1,0 +1,13 @@
+
+    <div class="input-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <button class="btn btn-secondary btn sm" (click)="downContador()">-</button>
+            </div>
+            <input type="text" class="form-control" [(ngModel)]="contador"
+                (keyup)="onChangeContador($event)">
+            <div class="input-group-prepend">
+                <button class="btn btn-secondary btn sm" (click)="upContador()">+</button>
+            </div>
+        </div>
+    </div>

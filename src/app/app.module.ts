@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { KingCarritoComponent } from './king-carrito/king-carrito.component';
 import { KingHomeComponent } from './king-home/king-home.component';
 import { KingConjuntosComponent } from './king-conjuntos/king-conjuntos.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { KingConjuntosComponent } from './king-conjuntos/king-conjuntos.componen
     KingListComponent,
     KingCarritoComponent,
     KingHomeComponent,
-    KingConjuntosComponent
+    KingConjuntosComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,

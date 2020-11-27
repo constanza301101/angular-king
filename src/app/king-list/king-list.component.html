@@ -1,6 +1,6 @@
 <h1>CONJUNTOS </h1>
 <table class="table">
-    <thead  class="thear-dark">
+    <thead class="thear-dark">
         <tr>
             <th>Imagen</th>
             <th>Nombre</th>
@@ -13,11 +13,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let conjunto of conjuntos" [ngClass]="{'liquidacion':conjunto.liquidacion}">
-            <td><img 
-                 width="150"
-                 class="img-thumbnail"
-                 [src]="conjunto.imagen"
-                 [alt]="conjunto.nombre">
+            <td><img width="150" class="img-thumbnail" [src]="conjunto.imagen" [alt]="conjunto.nombre">
             </td>
             <td>{{conjunto.nombre}}</td>
             <td>{{conjunto.talle}}</td>
@@ -25,15 +21,12 @@
             <td>
                 <span class="badge badge-warning" *ngIf="conjunto.stock==0">Sin stock</span>
                 <span class="badge badge-success" *ngIf="conjunto.stock!=0">En stock</span>
-            </td> 
+            </td>
             <td>
-                <button class="btn btn-secondary" (click)="downContador(conjunto)">-</button>
-                <input 
-                type="text" class="form-control"
-                 [(ngModel)]="conjunto.contador"
-                 (keyup)="onChangeContador($event, conjunto)"
-                 > 
-                <button class="btn btn-secondary" (click)="upContador(conjunto)">+</button>
+                <app-input-integer [contador]="conjunto.contador" [max]="conjunto.stock" *ngIf="conjunto.stock" (maxStock)="maxStock($event)">
+                </app-input-integer>
+                Cant:{{conjunto.contador}}
+
             </td>
         </tr>
     </tbody>
