@@ -11,20 +11,14 @@ export class ConjuntoCarritoService {
 
   constructor() { }
 
-  comprar(conjunto: King) {
-   let item: King = this._ListaCompras.find((v1)=> v1.nombre == conjunto.nombre);
-    if(!item){
-      this._ListaCompras.push({ ... conjunto});
+      comprar(conjunto: King) {
+      let item: King= this._ListaCompras.find((v1)=>v1.nombre == conjunto.nombre);
+      if(!item){
+        this._ListaCompras.push({ ... conjunto})
+      } else{
+        item.stock += conjunto. stock;
+      }
+      this.ListaCompras.next(this._ListaCompras);
+      
     }
-    else{
-      item.contador += conjunto.contador;
-    }
-    console.log(this._ListaCompras);
-    this.newMethod();
-  }
-  
-
-  private newMethod() {
-    this._ListaCompras.next(this._ListaCompras);
-  }
 }

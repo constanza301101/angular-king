@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./input-integer.component.scss']
 })
 export class InputIntegerComponent implements OnInit {
-  cambiadorContador: any;
+ 
 
   constructor() { }
 
@@ -17,6 +17,8 @@ export class InputIntegerComponent implements OnInit {
  max: number;
 @Output()
  maxStock: EventEmitter<string> = new EventEmitter<string>();
+ @Output()
+  contadorChange: EventEmitter<number> = new EventEmitter<number>();
 
   ngOnInit(): void {
   }
@@ -24,7 +26,7 @@ export class InputIntegerComponent implements OnInit {
   upContador():void{
     if(this.contador < this.max){
     this.contador++;
-    this.cambiadorContador.emit(this.contador);
+    this.contadorChange.emit(this.contador);
     }
     else
     this.maxStock.emit("stock no suficiente");
@@ -33,12 +35,12 @@ export class InputIntegerComponent implements OnInit {
   downContador():void{
     if(this.contador >0){
     this.contador--;
-    this.cambiadorContador.emit(this.contador);
+    this.contadorChange.emit(this.contador);
   }
   }
    onChangeContador(event):void{
    console.log(event.target);
-   this.cambiadorContador.emit(this.contador);
+   this.contadorChange.emit(this.contador);
    }
 }
 
