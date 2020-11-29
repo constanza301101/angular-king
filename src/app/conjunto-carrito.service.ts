@@ -16,7 +16,7 @@ export class ConjuntoCarritoService {
       if(!item){
         this._ListaCompras.push({ ... conjunto})
       } else{
-        item.stock += conjunto. stock;
+        item.contador += conjunto.contador;
       }
       this.ListaCompras.next(this._ListaCompras);
       
