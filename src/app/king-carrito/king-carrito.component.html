@@ -1,5 +1,5 @@
 <p>Compras</p>
-<ul class="list-group" *ngFor="let compra of (ListaCompras | async)">
+<ul class="list-group" *ngFor="let compra of (ListaCompras$ | async)">
     <li class="list-group-item">
         Pelicula: {{compra.nombre}} - Cantidad: {{compra.contador}}
     </li>
