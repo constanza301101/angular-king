@@ -1,4 +1,7 @@
-<p>Compras</p>
+<h2>Compras</h2>
+<span class="mensaje" *ngIf="(ListaCompras$ | async)?.length == 0">      
+    <p class="text-center">Usted no ha comprado nada aun</p>
+</span>
 <ul class="list-group" *ngFor="let compra of (ListaCompras$ | async)">
     <li class="list-group-item">
         Conjunto: {{compra.nombre}} - Cantidad: {{compra.contador}}

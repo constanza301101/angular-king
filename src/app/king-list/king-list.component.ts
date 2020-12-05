@@ -45,13 +45,21 @@ export class KingListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ 
+  comprar(conjunto){
+    if (conjunto.contador === 0){
+      alert("La cantidad tiene que ser mayor a cero");
+    }else{
+      this.carrito.comprar(conjunto);
+      conjunto.stock -= conjunto.cantidad; // a stock le resta la cantidad
+      conjunto.cantidad = 0; // reinicia cantidad para la próxima compra
+      this.GetConjuntos(conjunto);
+    }
 
-  comprar(conjunto):void {
-    this.carrito.comprar(conjunto);
-    conjunto.stock -= conjunto.contador;
-    conjunto.contador = 0;
-
-  } 
+  }
+  GetConjuntos(conjunto){    
+    this.carrito.GetConjuntos(conjunto);
+}
 
   maxStock(m: string) {
     alert(m);

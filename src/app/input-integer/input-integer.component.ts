@@ -13,11 +13,13 @@ export class InputIntegerComponent implements OnInit {
 
 @Input() 
  contador: number;
+ 
 @Input() 
  max: number;
 @Output()
  maxStock: EventEmitter<string> = new EventEmitter<string>();
- @Output()
+
+@Output()
   contadorChange: EventEmitter<number> = new EventEmitter<number>();
 
   ngOnInit(): void {
@@ -38,9 +40,17 @@ export class InputIntegerComponent implements OnInit {
     this.contadorChange.emit(this.contador);
   }
   }
-   onChangeContador(event):void{
-   console.log(event.target);
-   this.contadorChange.emit(this.contador);
-   }
+  
+onChangeContador(event) :void{
+  if (event.target.value<0){
+    event.target.value = event.target.value * (-1);
+    this.contador = event.target.value;
+  }
+
+  if (event.target.value>this.max){
+    this.contador = this.max;
+  }
+  this.contadorChange.emit(this.contador);
+}
 }
 

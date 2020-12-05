@@ -5,20 +5,29 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ConjuntoCarritoService {
-  private _ListaCompras: King[]=[];
-  ListaCompras: BehaviorSubject<King[]> = new BehaviorSubject([]);
 
-  constructor() { }
+  export class ConjuntoCarritoService{
 
+    private _ListaCompras: King[] = [];
+    ListaCompras: BehaviorSubject<King[]> = new BehaviorSubject(this._ListaCompras);
+  
+    constructor() { }
+    
       comprar(conjunto: King) {
       let item: King= this._ListaCompras.find((v1)=>v1.nombre == conjunto.nombre);
       if(!item){
         this._ListaCompras.push({ ... conjunto})
-      } else{
+      }
+      else{
         item.contador += conjunto.contador;
       }
       this.ListaCompras.next(this._ListaCompras);
-      
     }
-}
+    GetConjuntos(conjunto: King){
+      let item: King = this._ListaCompras.find((v1)=>v1.nombre == conjunto.nombre);
+      if(!item){
+        this._ListaCompras.push({ ... conjunto})
+      }
+      this.ListaCompras.next(this._ListaCompras);
+    }
+  }
