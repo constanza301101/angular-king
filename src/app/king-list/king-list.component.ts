@@ -51,9 +51,9 @@ export class KingListComponent implements OnInit {
       alert("La cantidad tiene que ser mayor a cero");
     }else{
       this.carrito.comprar(conjunto);
-      conjunto.stock -= conjunto.cantidad; // a stock le resta la cantidad
-      conjunto.cantidad = 0; // reinicia cantidad para la próxima compra
-      this.GetConjuntos(conjunto);
+      conjunto.stock -= conjunto.contador; // a stock le resta la cantidad
+      conjunto.contador = 0; // reinicia cantidad para la próxima compra
+      this.comprar(conjunto);
     }
 
   }
