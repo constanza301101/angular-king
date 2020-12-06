@@ -23,7 +23,7 @@
                 <span class="badge badge-success" *ngIf="conjunto.stock!=0">En stock</span>
             </td>
             <td>
-                <app-input-integer [contador]="conjunto.contador" [max]="conjunto.stock" *ngIf="conjunto.stock"
+                <app-input-integer [(contador)]="conjunto.contador" [max]="conjunto.stock" *ngIf="conjunto.stock"
                     (maxStock)="maxStock($event)">
                 </app-input-integer>
             </td>
